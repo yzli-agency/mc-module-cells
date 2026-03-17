@@ -1,0 +1,63 @@
+{
+  "$schema": "https://mission-control.yzli.io/schemas/manifest-v1.json",
+
+  "id": "yzli/cells",
+  "name": "Cellules & Constellation",
+  "version": "1.0.0",
+  "description": "Functional cells and agent constellation. Defines workflows and role assignments.",
+
+  "author": {
+    "name": "Yzli Studio",
+    "email": "dev@yzli.io",
+    "url": "https://yzli.io"
+  },
+
+  "license": "MIT",
+  "repository": "git@github.com:yzli-agency/mc-module-cells.git",
+
+  "runtime": {
+    "python": ">=3.11",
+    "mission_control": ">=2.0.0"
+  },
+
+  "dependencies": {
+    "yzli/agents": ">=1.0.0"
+  },
+
+  "visibility": "team",
+
+  "entrypoints": {
+    "api": "backend.routes:router"
+  },
+
+  "hooks": {
+    "activate": "backend.lifecycle:on_activate",
+    "deactivate": "backend.lifecycle:on_deactivate"
+  },
+
+  "migrations": {
+    "enabled": true,
+    "path": "migrations/"
+  },
+
+  "nav_item": {
+    "label": "Constellation",
+    "icon": "ph-dna",
+    "view_id": "cells",
+    "sort_order": 6
+  },
+
+  "db": {
+    "tables": ["cells", "cell_roles"]
+  },
+
+  "permissions": [
+    "cells.read",
+    "cells.write",
+    "cells.admin"
+  ],
+
+  "tags": ["core", "cells", "constellation"],
+
+  "keywords": ["cells", "workflow", "constellation", "roles"]
+}
